@@ -1,0 +1,34 @@
+1. Initialize variables: num, i, quanta, flag, bt[20], at[20], rt[20], remain, time = 0, sum_tat = 0, sum_wt = 0.
+2. Read the number of processes (num) from the user.
+3. Set remain = num.
+4. For i = 0 to num - 1:
+     a. Read burst time (bt[i]) and arrival time (at[i]) for process i+1.
+     b. Initialize rt[i] = bt[i].
+5. Read time quantum (quanta) from the user.
+6. Set i = 0 to process the first process.
+
+7. While remain != 0:
+     a. If rt[i] <= quanta and rt[i] > 0:
+         i. Increment time by rt[i].
+         ii. Set rt[i] = 0.
+         iii. Set flag = 1.
+     b. Else if rt[i] > 0:
+         i. Decrement rt[i] by quanta.
+         ii. Increment time by quanta.
+
+     c. If rt[i] == 0 and flag == 1:
+         i. Decrement remain by 1.
+         ii. Update sum_wt by adding (time - at[i] - bt[i]).
+         iii. Update sum_tat by adding (time - at[i]).
+         iv. Set flag = 0.
+
+     d. Increment i using (i + 1) % num to loop through processes.
+
+8. Calculate average waiting time (avg_wt) by dividing sum_wt by num.
+9. Calculate average turnaround time (avg_tat) by dividing sum_tat by num.
+
+10. Print "Average Waiting Time: avg_wt".
+11. Print "Average Turnaround Time: avg_tat".
+
+12. End of the program.
+
